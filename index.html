@@ -1,1 +1,70 @@
-<h1>YO</h1>
+<html>
+    <head>
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="aim-trainer.js"></script>    
+        <style>
+            .timer-outer{
+                display: flex;
+                align-items: center;
+            }
+            .result-div{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-direction: column;
+                border: 1px dashed black;
+                background-color: #c2c2c2;
+                border-radius: 20px;
+                background-image: url("gachiapprove.gif");
+                background-repeat: no-repeat;
+                background-size: 100% 100%;
+            }
+            .aim-div-class{
+                background-image: url("handsup.png");
+                background-repeat: no-repeat;
+                background-size: 100% 100%;
+            }
+            .widehardo{
+                margin-left: auto;
+                margin-right: auto;
+                background-image: url("widehardo.png");
+                background-repeat: no-repeat;
+                background-size: 100% 100%;
+                width: 300px;
+                height: 30px;
+            }
+        </style>
+    </head>
+    <body>
+        <div style="width: 700px; height: 535px; border: 1px solid #c2c2c2; margin: 30px auto 0px;">
+            <div class="timer-outer" id="timer-div-outer" style="height: 35px; background-color: #c2c2c2;">
+                <div id="start-button-wrapper" style="padding-left: 10px; margin-right: auto;">
+                    <button name="start" id="start" style="cursor: pointer;">Start</button>
+                </div>
+                <div class="widehardo"></div>
+                <div id="timer-div-inner" style="margin-right: 10px; margin-left: auto; border: 1px solid black; background-color: #908c8c; border-radius: 10px;">
+                    <span id="timer-span" style="padding-right: 10px; padding-left: 10px;">
+                        1:00 
+                    </span>
+                </div>
+            </div>
+            <div class="aim-div-class" id="aim-div" style="height: 500px; background-color: #eaeaea; position: relative;">
+                <div class="result-div" id="result" style="display: none; width: 250px; height: 200px; margin: 150px 225px; position: absolute;">
+                    <span id="accuracy" style="display: block;"></span>
+                    <span id="hits" style="display: block;"></span>
+                </div>
+                <span id="aim-dot" style="margin: 235px 335px 235px 335px; width: 30px; height: 30px;  background-color: rgb(255, 0, 0); border-radius: 50%; display: inline-block;">
+                </span>
+            </div>
+        </div>
+        <audio id="audioFile0" src="https://pajbot.github.io/playsounds/files/common/fuckyou.ogg"></audio>
+        <audio id="audioFile1" src="https://pajbot.github.io/playsounds/files/common/woop.ogg"></audio>
+        <audio id="audioFile2" src="https://pajbot.github.io/playsounds/files/common/yessir.ogg"></audio>
+        <audio id="audioFile3" src="https://pajbot.github.io/playsounds/files/common/youlikethat.ogg"></audio>
+        <audio id="audioFile4" src="https://i.nuuls.com/N90wN.mp3"></audio>
+        <audio id="audioFile5" src="https://pajbot.github.io/playsounds/files/common/takeit.ogg"></audio>
+        <audio id="audioFile6" src="https://pajbot.github.io/playsounds/files/common/suction.ogg"></audio>
+        <audio id="audioFile7" src="https://pajbot.github.io/playsounds/files/common/slap.ogg"></audio>
+        <audio id="audioFile8" src="https://pajbot.github.io/playsounds/files/2019-05-18/ohnonono.ogg"></audio>
+    </body>
+</html>
