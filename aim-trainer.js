@@ -68,7 +68,7 @@ function createNewDot() {
     let id = "dot" + idNumber;
     idNumber++;
     $("#dot").clone(true).attr('id', id).css("display", "block").css("margin", String(marginTop) + "px " + String(marginRight) + "px " + String(440 - marginTop) + "px " + String(640 - marginRight) + "px").appendTo("#aim-div");
-    $("#" + id).animate({height: "60px", width: "60px"}, 1500, "swing", () =>{
+    $("#" + id).animate({height: "60px", width: "60px"}, 1500, "linear", () =>{
         $("#" + id).remove();
         targetMiss += 1;
     });
