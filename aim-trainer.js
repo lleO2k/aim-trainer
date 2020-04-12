@@ -4,6 +4,9 @@ let misClicks = 0.0;
 let targetMiss = 0;
 let idNumber = 1;
 $(document).ready(function () {
+    let timer;
+    let timer2;
+    let timeout;
     $(".aim-dot").click(function (e) {
         e.preventDefault();
         e.stopPropagation();
@@ -32,17 +35,17 @@ $(document).ready(function () {
             misClicks = 0;
             targetMiss = 0;
             let timeLeft = 60;
-            let timer = setInterval(() => {
+            timer = setInterval(() => {
                 timeLeft -= 1;
                 if (timeLeft < 10)
                     $("#timer-span").text("0:0" + timeLeft);
                 else
                     $("#timer-span").text("0:" + timeLeft);
             }, 1000);
-            let timer2 = setInterval(() => {
+            timer2 = setInterval(() => {
                 createNewDot();
             }, $("#dots-per-sec").val());
-            setTimeout(() => {
+            timeout = setTimeout(() => {
                 clearInterval(timer);
                 clearInterval(timer2);
                 $("#accuracy").text("Accuracy : " + (correctClicks/(correctClicks + misClicks)).toFixed(4) * 100 + "%");
@@ -56,6 +59,20 @@ $(document).ready(function () {
             return false;
         }
     });
+    $("#reset").click(function (e) {
+        e.preventDefault();
+        if(isGameRunning) {
+            isGameRunning = false;
+            clearTimeout(timeout);
+            clearInterval(timer);
+            clearInterval(timer2);
+            $("#timer-span").text("1:00");
+            $("#result").css("display", "none");
+        } else {
+            $("#timer-span").text("1:00");
+            $("#result").css("display", "none");
+        }
+    })
 });
 
 function getRandomInt(max) {
@@ -63,12 +80,16 @@ function getRandomInt(max) {
 }
 
 function createNewDot() {
-    let marginRight = getRandomInt(640);
-    let marginTop = getRandomInt(440);
+    let aimDivHeight = $("#aim-div").height();
+    let aimDivWidth = $("#aim-div").width();
+    let maxMarginHorizontal = aimDivWidth - 60
+    let maxMarginVertical = aimDivHeight - 60
+    let marginRight = getRandomInt(maxMarginHorizontal);
+    let marginTop = getRandomInt(maxMarginVertical);
     let id = "dot" + idNumber;
     idNumber++;
-    $("#dot").clone(true).attr('id', id).css("display", "block").css("margin", String(marginTop) + "px " + String(marginRight) + "px " + String(440 - marginTop) + "px " + String(640 - marginRight) + "px").appendTo("#aim-div");
-    $("#" + id).animate({height: "60px", width: "60px"}, 1500, "linear", () =>{
+    $("#dot").clone(true).attr('id', id).css("display", "block").css("margin", String(marginTop) + "px " + String(marginRight) + "px " + String(maxMarginVertical - marginTop) + "px " + String(maxMarginHorizontal - marginRight) + "px").appendTo("#aim-div");
+    $("#" + id).animate({height: "60px", width: "60px"}, 1500, "linear", () =>{1
         $("#" + id).remove();
         targetMiss += 1;
     });
