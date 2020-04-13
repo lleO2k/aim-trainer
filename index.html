@@ -54,43 +54,46 @@
         </style>
     </head>
     <body style="background-color: #2a2a2e;">
-        <div class="container shadow rounded" style="margin-top: 2%; border: 1px solid #c2c2c2; max-width: 1000px; width: 65%; height: 90%; max-height: 900px; display: flex; flex-flow: column;">
-            <div class="row" id="timer-div-outer" style="background-color: #c2c2c2;">
-                <div class="col-md-3 col-sm-3" style="display: flex; align-items: center;">
-                    <button class="btn btn-primary" name="start" id="start" data-toggle="tooltip" data-placement="bottom" title="Start Game" style="padding-top: 0px; padding-bottom: 0px; margin-right: 20px;">Start</button>
-                    <button class="btn btn-primary" name="reset" id="reset" data-toggle="tooltip" data-placement="bottom" title="Reset" style="padding-top: 0px; padding-bottom: 0px; padding-left: 5px; padding-right: 5px;">
-                        <img src="reset.webp" style="height: 24px; max-width: 100%;">
-                    </button>
+        <div class="d-flex align-items-center vh-100">
+            <div class="container shadow rounded" style="border: 1px solid #c2c2c2; max-width: 1000px; width: 65%; height: 90%; max-height: 900px; display: flex; flex-flow: column;">
+                <div class="row" id="timer-div-outer" style="background-color: #c2c2c2;">
+                    <div class="col-md-3 col-sm-3" style="display: flex; align-items: center;">
+                        <button class="btn btn-primary" name="start" id="start" data-toggle="tooltip" data-placement="bottom" title="Start Game" style="padding-top: 0px; padding-bottom: 0px; margin-right: 20px;">Start</button>
+                        <button class="btn btn-primary" name="reset" id="reset" data-toggle="tooltip" data-placement="bottom" title="Reset" style="padding-top: 0px; padding-bottom: 0px; padding-left: 5px; padding-right: 5px;">
+                            <img src="reset.webp" style="height: 24px; max-width: 100%;">
+                        </button>
+                    </div>
+                    <div class="col-md-5 col-sm-5">
+                        <div class="widehardo" data-toggle="tooltip" data-placement="bottom" title="WideHardo"></div>
+                    </div>
+                    <div class="col-md-3 col-sm-3" data-toggle="tooltip" data-placement="bottom" title="Select targets/sec" style="display: flex; align-items: center;">
+                        <label for="dots-per-sec" style="margin-right: 3px; margin-bottom: 0;">Targets/sec:</label>
+                        <select style="background-color: #007bff; color: white;" id="dots-per-sec">
+                            <option value="200">5</option>
+                            <option value="400">2.5</option>
+                            <option value="500">2</option>
+                            <option value="666">1.5</option>
+                            <option value="1000" selected>1</option>
+                            <option value="2000">0.5</option>
+                        </select>
+                    </div>
+                    <div class="col-md-1 col-sm-1" data-toggle="tooltip" data-placement="bottom" title="Timer" style="display: flex; align-items: center; justify-content: right;">
+                        <span id="timer-span" style="border: 0px solid; background-color: #007bff; border-radius: 10px; padding-right: 10px; padding-left: 10px;">
+                            1:00 
+                        </span>
+                    </div>
                 </div>
-                <div class="col-md-5 col-sm-5">
-                    <div class="widehardo" data-toggle="tooltip" data-placement="bottom" title="WideHardo"></div>
-                </div>
-                <div class="col-md-3 col-sm-3" data-toggle="tooltip" data-placement="bottom" title="Select targets/sec" style="display: flex; align-items: center;">
-                    <label for="dots-per-sec" style="margin-right: 3px; margin-bottom: 0;">Targets/sec:</label>
-                    <select style="background-color: #007bff; color: white;" id="dots-per-sec">
-                        <option value="200">5</option>
-                        <option value="400">2.5</option>
-                        <option value="500">2</option>
-                        <option value="666">1.5</option>
-                        <option value="1000" selected>1</option>
-                        <option value="2000">0.5</option>
-                    </select>
-                </div>
-                <div class="col-md-1 col-sm-1" data-toggle="tooltip" data-placement="bottom" title="Timer" style="display: flex; align-items: center; justify-content: right;">
-                    <span id="timer-span" style="border: 0px solid; background-color: #007bff; border-radius: 10px; padding-right: 10px; padding-left: 10px;">
-                        1:00 
-                    </span>
-                </div>
-            </div>
-            <div class="row" style="flex-grow : 1;">
-                <div class="col-md-12 col-sm-12">
-                    <div class="aim-div-class" id="aim-div" style="background-color: #eaeaea; position: relative;">
-                        <div class="result-div" id="result" style="display: none; margin: auto; position: absolute;">
-                            <span id="accuracy" style="display: block; color: white;"></span>
-                            <span id="hits" style="display: block; color: white;"></span>
-                            <span id="misses" style="display: block; color: white;"></span>
+                <div class="row" style="flex-grow : 1;">
+                    <div class="col-md-12 col-sm-12">
+                        <div class="aim-div-class" id="aim-div" style="background-color: #eaeaea; position: relative;">
+                            <div class="result-div" id="result" style="display: none; margin: auto; position: absolute;">
+                                <span id="accuracy" style="display: block; color: white;"></span>
+                                <span id="hits" style="display: block; color: white;"></span>
+                                <span id="misses" style="display: block; color: white;"></span>
+                                <a href="/vi-von.html"><span style="color: white;">click here to see full results</span></a>
+                            </div>
+                            <div class="aim-dot" id="dot"></div>
                         </div>
-                        <div class="aim-dot" id="dot"></div>
                     </div>
                 </div>
             </div>
