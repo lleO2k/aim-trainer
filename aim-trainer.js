@@ -48,7 +48,7 @@ $(document).ready(function () {
             timeout = setTimeout(() => {
                 clearInterval(timer);
                 clearInterval(timer2);
-                $("#accuracy").text("Accuracy : " + (correctClicks/(correctClicks + misClicks)).toFixed(4) * 100 + "%");
+                $("#accuracy").text("Accuracy : " + Number.parseFloat((correctClicks/(correctClicks + misClicks))).toFixed(4) * 100 + "%");
                 $("#hits").text("Targets hit : " + correctClicks);
                 $("#misses").text("Targets missed : " + targetMiss);
                 $("#result").css("display", "flex");
